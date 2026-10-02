@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виктория Гордеева — Финансовый консультант</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0;
+        }
+        .page-wrapper {
+            width: 100%;
+            max-width: 450px;
+            background-color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+        }
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 4px 20px 4px;
+        }
+        .identity-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .user-avatar {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #5e5ce6, #a25ddc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .meta-text .full-name {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .meta-text .job-title {
+            font-size: 12px;
+            color: #8e8e93;
+            margin-top: 2px;
+        }
+        .btn-header-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .telegram-svg-icon {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+        .partner-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #121214;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px 4px 24px 4px;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .status-green-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #34c759;
+            border-radius: 50%;
+        }
+        .hero-heading {
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.15;
+            padding: 0 4px;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .main-intro-paragraph {
+            font-size: 15px;
+            color: #aeaeae;
+            line-height: 1.5;
+            padding: 0 4px;
+            margin-bottom: 30px;
+        }
+        .primary-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 4px;
+            margin-bottom: 35px;
+        }
+        .btn-full-width-white {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .btn-full-width-dark {
+            display: block;
+            text-align: center;
+            background-color: #121214;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .premium-bank-card {
+            background: linear-gradient(135deg, #3a0d0d 0%, #140303 100%);
+            border-radius: 24px;
+            padding: 24px;
+            margin: 10px 4px 30px 4px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emv-chip {
+            width: 38px;
+            height: 28px;
+            background: linear-gradient(135deg, #b0b0b0 0%, #4a4a4a 100%);
+            border-radius: 6px;
+            margin-bottom: 45px;
+        }
+        .contactless-wave {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+        .card-masked-number {
+            font-size: 18px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        .card-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .alfa-letter-logo {
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+        }
+        .embossed-holder-name {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+        .block-section-heading {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin: 35px 0 20px 4px;
+        }
+        .approach-feature-box {
+            background-color: #121214;
+            border-radius: 24px;
+            padding: 8px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            margin-bottom: 20px;
+        }
+        .approach-row-item {
+            display: flex;
+            gap: 16px;
+            padding: 22px 0;
+        }
+        .approach-row-item:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .approach-round-badge {
+            width: 32px;
+            height: 32px;
+            background-color: #1c1c1e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .approach-text-node h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+        .approach-text-node p {
+            font-size: 13.5px;
+            color: #8e8e93;
+            line-height: 1.45;
+        }
+        .service-layout-card {
+            background-color: #121214;
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .service-upper-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .service-square-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #1c1c1e;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .service-pricing-column { text-align: right; }
+        .service-exact-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+        .service-price-sub {
+            font-size: 11px;
+            color: #636366;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .service-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .service-card-description {
+            font-size: 14px;
+            color: #8e8e93;
+            line-height: 1.45;
+            margin-bottom: 20px;
+        }
+        .service-bullets-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .bullet-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #e5e5ea;
+        }
+        .checkmark-circle {
+            width: 18px;
+            height: 18px;
+            background-color: #1c1c1e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5e5ce6;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+        .workflow-steps-box {
+            background-color: #121214;
+            border-radius: 24px;
+            padding: 8px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            margin-bottom: 10px;
+        }
+        .workflow-step-node {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px 0;
+            position: relative;
+        }
+        .workflow-step-node:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .workflow-step-index {
+            font-size: 16px;
+            font-weight: 700;
+            color: #5e5ce6;
+        }
+        .workflow-step-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .workflow-step-text p {
+            font-size: 14px;
+            color: #8e8e93;
+            line-height: 1.4;
+        }
+        .partner-subtitle-text {
+            font-size: 15px;
+            color: #636366;
+            line-height: 1.4;
+            margin: -14px 0 20px 4px;
+        }
+        .banks-cloud-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-left: 4px;
+            margin-bottom: 25px;
+        }
+        .bank-oval-badge {
+            background-color: #121214;
+            color: #8e8e93;
+            font-size: 14px;
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .feedbacks-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .feedback-item-card {
+            background-color: #121214;
+            border-radius: 24px;
+            padding: 20px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .feedback-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .feedback-user-name { font-size: 16px; font-weight: 600; }
+        .feedback-stars-purple {
+            color: #5e5ce6;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+        .feedback-message-text {
+            font-size: 15px;
+            color: #e5e5ea;
+            line-height: 1.45;
+        }
+        .tg-mention-link {
+            color: #5e5ce6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-questions-block {
+            background-color: #121214;
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            margin: 10px 4px 20px 4px;
+        }
+        .footer-paperplane-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #1c1c1e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            font-size: 18px;
+        }
+        .footer-questions-block h3 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .footer-questions-block p {
+            font-size: 14.5px;
+            color: #8e8e93;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+        .btn-footer-telegram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #ffffff;
+            color: #000000;
+text-decoration: none;
+padding: 14px;
+border-radius: 30px;
+font-size: 15px;
+font-weight: 600;
+}
+html
+        <header class="site-header">
+            
+                <div class="user-avatar">ВГ</div>
+                <div class="meta-text">
+                    <div class="full-name">Виктория<br>Гордеева</div>
+                    <div class="job-title">Консультант</div>
+                </div>
+            </div>
+            <!-- Ссылки на Telegram будут ниже -->
+            <a href="https://t.me" target="_blank" class="btn-header-action">
+                <svg class="telegram-svg-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.7-2.46 2.75-2.67.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.83 1.16-5.16 3.42-.49.33-.93.5-1.33.49-.44-.01-1.29-.25-1.92-.45-.77-.25-1.39-.39-1.34-.83.03-.23.35-.46.97-.71 3.79-1.65 6.32-2.74 7.59-3.27 3.61-1.5 4.36-1.76 4.85-1.77.11 0 .35.03.5.16.13.12.17.29.18.41 0 .07-.01.22-.02.33z"/>
+                </svg>
+                Связаться
+            </a>
+        </header>
+
+        <div class="partner-status-pill">
+            <div class="status-green-dot"></div>
+            <span>Официальный партнёр Альфа Банка</span>
+        </div>
+
+        <h1 class="hero-heading">Ваш личный консультант по финансовой помощи</h1>
+
+        <p class="main-intro-paragraph">
+            Меня зовут Вика. Помогаю людям выйти на свой первый доход, консультирую и довожу до конца до 50к/мес. Помощь в выборе задания, отзыва и стабильного заработка.
+        </p>
+
+        <div class="primary-cta-group">
+            <a href="https://t.me" target="_blank" class="btn-full-width-white">
+                <svg class="telegram-svg-icon" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.7-2.46 2.75-2.67.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.83 1.16-5.16 3.42-.49.33-.93.5-1.33.49-.44-.01-1.29-.25-1.92-.45-.77-.25-1.39-.39-1.34-.83.03-.23.35-.46.97-.71 3.79-1.65 6.32-2.74 7.59-3.27 3.61-1.5 4.36-1.76 4.85-1.77.11 0 .35.03.5.16.13.12.17.29.18.41 0 .07-.01.22-.02.33z"/>
+                </svg>
+                Связаться со мной
+            </a>
+            <a href="#services" class="btn-full-width-dark">Смотреть услуги</a>
+        </div>
+
+        <div class="premium-bank-card">
+            <div class="emv-chip"></div>
+            <div class="contactless-wave">☊</div>
+            <div class="card-masked-number">•••• •••• •••• 50К</div>
+            <div class="card-bottom-row">
+                <div class="alfa-letter-logo">А</div>
+                <div class="embossed-holder-name">VIKTORIA GORDEEVA</div>
+            </div>
+        </div>
+
+        <h2 class="block-section-heading">Индивидуальный подход к каждому</h2>
+        
+        <div class="approach-feature-box">
+            <div class="approach-row-item">
+                <div class="approach-round-badge">👥</div>
+                <div class="approach-text-node">
+                    <h4>Опыт в финансовой сфере</h4>
+                    <p>Практика работы с партнерскими программами, банками и клиентами.</p>
+                </div>
+            </div>
+            <div class="approach-row-item">
+                <div class="approach-round-badge">✓</div>
+                <div class="approach-text-node">
+                    <h4>Помощь в выборе продуктов</h4>
+                    <p>Подбираю под ваши возможности конкретный тип отзывов или простых заданий.</p>
+                </div>
+            </div>
+            <div class="approach-row-item">
+                <div class="approach-round-badge">%</div>
+                <div class="approach-text-node">
+                    <h4>Прозрачные условия</h4>
+                    <p>Никаких скрытых комиссий — все нюансы обговариваем сразу.</p>
+                </div>
+            </div>
+            <div class="approach-row-item">
+                <div class="approach-round-badge">📈</div>
+                <div class="approach-text-node">
+                    <h4>Сопровождение до результата</h4>
+                    <p>Остаюсь на связи удаленно, пока задание не будет полностью сдано и оплачено.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="block-section-heading" id="services">Услуги</h2>
+
+        <div class="service-layout-card">
+            <div class="service-upper-flex">
+                <div class="service-square-icon">💼</div>
+                <div class="service-pricing-column">
+                    <div class="service-exact-price">2 000 ₽</div>
+                    <div class="service-price-sub">оплата</div>
+                </div>
+            </div>
+            <div class="service-card-title">Написать отзыв на партнерскую программу</div>
+            <div class="service-card-description">Написание честного и развернутого отзыва о партнерской платформе для улучшения внутренних банковских алгоритмов и сервиса.</div>
+            
+            <div class="service-bullets-stack">
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Доступно 1 раз в день</div>
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Время выполнения: 20–40 минут</div>
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Пошаговое кураторское ведение</div>
+            </div>
+        </div>
+        <div class="service-layout-card">
+            <div class="service-upper-flex">
+                <div class="service-square-icon">📝</div>
+                <div class="service-pricing-column">
+                    <div class="service-exact-price">500 ₽</div>
+                    <div class="service-price-sub">оплата</div>
+                </div>
+            </div>
+            <div class="service-card-title">Обычный отзыв (ВБ, Озон, Авито)</div>
+            <div class="service-card-description">Публикация отзывов на ведущих российских маркетплейсах и досках объявлений. Простой и предсказуемый заработок.</div>
+            
+            <div class="service-bullets-stack">
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Время выполнения: 15–20 минут</div>
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Доступно до 4 раз в день</div>
+                <div class="bullet-item-row"><span class="checkmark-circle">✓</span> Активируется после выполнения 1-го задания</div>
+            </div>
+        </div>
+
+        <h2 class="block-section-heading">Как проходит<br>консультация</h2>
+        
+        <div class="workflow-steps-box">
+            <div class="workflow-step-node">
+                <div class="workflow-step-index">01</div>
+                <div class="workflow-step-text">
+                    <h3>Пишете мне в Telegram</h3>
+                    <p>Коротко описываете свою задачу и желание начать зарабатывать.</p>
+                </div>
+            </div>
+            <div class="workflow-step-node">
+                <div class="workflow-step-index">02</div>
+                <div class="workflow-step-text">
+                    <h3>Уточняющие вопросы</h3>
+                    <p>Задаю вопросы о вашем опыте и предлагаю наиболее подходящее быстрое решение.</p>
+                </div>
+            </div>
+            <div class="workflow-step-node">
+                <div class="workflow-step-index">03</div>
+                <div class="workflow-step-text">
+                    <h3>Онлайн, в любое время</h3>
+                    <p>Консультация проходит полностью удаленно и ни к чему вас не обязывает.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="block-section-heading">Партнёрство</h2>
+        <p class="partner-subtitle-text">Работаю напрямую с банками — без посредников и переплат.</p>
+        
+        <div class="banks-cloud-flex">
+            <div class="bank-oval-badge">Альфа-Банк</div>
+            <div class="bank-oval-badge">Т-Банк</div>
+            <div class="bank-oval-badge">Сбербанк</div>
+            <div class="bank-oval-badge">ВТБ</div>
+            <div class="bank-oval-badge">Совкомбанк</div>
+            <div class="bank-oval-badge">Газпромбанк</div>
+            <div class="bank-oval-badge">Райффайзен Банк</div>
+            <div class="bank-oval-badge">Открытие</div>
+            <div class="bank-oval-badge">Росбанк</div>
+        </div>
+
+        <h2 class="block-section-heading">Отзывы</h2>
+        
+        <div class="feedbacks-stack">
+            <div class="feedback-item-card">
+                <div class="feedback-card-top">
+                    <span class="feedback-user-name">Алина</span>
+                    <div class="feedback-stars-purple">★★★★★</div>
+                </div>
+                <p class="feedback-message-text">
+                    Спасибочки <span class="tg-mention-link">@vika_gordeeva</span> 🙌 выплату за отзывы по Альфе и за оформление получила, в ближайшие дни ещё отзывы напишу.
+                </p>
+            </div>
+
+            <div class="feedback-item-card">
+                <div class="feedback-card-top">
+                    <span class="feedback-user-name">Маша</span>
+                    <div class="feedback-stars-purple">★★★★★</div>
+                </div>
+                <p class="feedback-message-text">
+                    Самая лучшая <span class="tg-mention-link">@vika_gordeeva</span> ))) честно, понятно, быстро и главное — хорошо оплачиваемо.
+                </p>
+            </div>
+
+            <div class="feedback-item-card">
+                <div class="feedback-card-top">
+                    <span class="feedback-user-name">Настя</span>
+                    <div class="feedback-stars-purple">★★★★★</div>
+                </div>
+                <p class="feedback-message-text">
+                    Занималась написанием отзывов с Викторией и вот пишу отзыв о нашей работе — всё круто, классно) Кто сомневается, понимаю вас хахах, сама засомневалась сначала, но всё хорошо 🫶
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-questions-block">
+            <div class="footer-paperplane-icon">✈️</div>
+            <h3>Остались вопросы?</h3>
+            <p>Напишите — отвечу лично и подберу решение под вашу ситуацию.</p>
+            <a href="https://t.me" target="_blank" class="btn-footer-telegram">
+                <svg class="telegram-svg-icon" viewBox="0 0 24 24" style="width: 15px; height: 15px;">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.7-2.46 2.75-2.67.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.83 1.16-5.16 3.42-.49.33-.93.5-1.33.49-.44-.01-1.29-.25-1.92-.45-.77-.25-1.39-.39-1.34-.83.03-.23.35-.46.97-.71 3.79-1.65 6.32-2.74 7.59-3.27 3.61-1.5 4.36-1.76 4.85-1.77.11 0 .35.03.5.16.13.12.17.29.18.41 0 .07-.01.22-.02.33z"/>
+                </svg>
+                Написать в Telegram
+            </a>
+        </div>
+    </div>
+</body>
+</html>
